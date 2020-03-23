@@ -1,36 +1,29 @@
-// **THIS IS INCREDIBLY IMPORTANT THAT YOU DO BOTH SECTIONS!!! You will be doing only front-end work in 421 and you need to brush up on your HTML elements**
 // ***************************
 //          PART ONE
 // ***************************
 // Write a JavaScript program to display the current day and time, start with:
-console.log(new Date)
+//console.log(new Date)
 
 const displayDate = () => {
   const currentDate = new Date()
 
   document.getElementById("display-element").innerHTML = currentDate;
 }
- 
 
 // Write a JavaScript program to convert a number to a string.
 const numToString = () => {
   let num = 3
-  let myString = num.toString()
-  console.log(num,myString)
+  let myString = num.toString() + 0
+  document.getElementById("numToStringText").innerHTML = num + ' is a '.bold() + (typeof num).bold() + ' and '.italics() + myString + ' is a '.bold() +(typeof myString).bold();
 }
-
-numToString()
-
 
 // Write a JavaScript program to convert a string to the number.
 const stringToNum = () => {
-  let myString = '33'
+  let myString = '3'
   let num = Number(myString)
-  console.log(myString, num)
+  num = num + 27
+  document.getElementById("stringToNumText").innerHTML = myString + ' is a '.bold() + (typeof myString).bold() + ' and '.italics() + num + ' is a '.bold() +(typeof num).bold();
 }
-
-stringToNum()
-
 
 // Write a JavaScript program that takes in different datatypes and prints out whether they are a:
   // * Boolean
@@ -47,69 +40,52 @@ const whatDataType = () => {
   let nu = typeof(16)
   let na = typeof(0/0)
   let s = typeof('string')
-  console.log(b + ' ' + n  + ' ' + u + ' ' + nu + ' ' + na + ' ' + s)
+  document.getElementById("whatDataTypeText").innerHTML = '<ul> <li> false = ' + b + '</li> <li> null = ' + n + '</li> <li> undefined = '
+  + u + '</li> <li> number = ' + nu + '</li> <li> nAn = ' + na + '</li> <li> string = ' + s + '</ul';
 }
-  
-whatDataType() 
 
 // Write a JavaScript program that adds 2 numbers together.
 
-const addNum = () => {
-  n1 = 14
-  n3 = 42
-  sum = n1 + n3
-  console.log(sum)
+const addTwoNumbers = (num1, num2) => { 
+  num1 = document.getElementById("num1").value
+  num2 = document.getElementById("num2").value
+  sum = +num1 + +num2
+  document.getElementById("addTwoNumbersText").innerHTML = 'The sum of your numbers is ' + sum;
 }
-
-addNum()
-
-
-// Write a JavaScript program that runs only when 2 things are true.
-const ifBothTrue = () => {
-  if ( 10 > 5 && 1 < 20){
-    console.log('true!')
-  }
-}
-
-ifBothTrue()
 
 // Write a JavaScript program that runs when 1 of 2 things are true.
-const ifHalfTrue = () => {
-  if ( 10 > 5 || 1 > 20){
-    console.log('half true!')
-  }
+
+const ifEitherTrue = (obj) => {
+  let colors = ["sandybrown", "rosybrown", "plum", "seagreen", "springgreen"]
+  obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]
+    if (obj.style.backgroundColor === "seagreen" || obj.style.backgroundColor === "springgreen" ) {
+      obj.innerHTML = 'green'
+    }
+    else {
+    obj.innerHTML = 'not green'
+    }
 }
 
-ifHalfTrue()
+// Write a JavaScript program that runs only when 2 things are true.
+const ifBothTrue = (obj) => {
+  let colors = ["plum", "seagreen"]
+  let textColors = ["salmon", "white"]
+  obj.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+  obj.style.color = textColors[Math.floor(Math.random() * textColors.length)];
+    if (obj.style.backgroundColor === "seagreen" && obj.style.color === "salmon" ) {
+      obj.innerHTML = 'yes'
+    }
+    else {
+      obj.innerHTML = 'no'
+    }
+}
 
-// Write a JavaScript program that runs when both things are not true. 
-const ifFalse = () => {
-  if ( 10 < 5 && 1 > 20){
-    return('curious!')
-  }
+// Write a JavaScript program that runs when both things are not true.
+const ifBothFalse = () => {
+  if ( 10 < 5 && 1 > 20) {
+   document.getElementById("ifBothFalseText").innerHTML = 'true statements'
+  } 
   else {
-    return('false!')
+    document.getElementById("ifBothFalseText").innerHTML = ' 10 < 5 <br> 1 > 20'
   }
 }
-
-ifFalse()
-
-// ***************************
-//         PART TWO
-// ***************************
-
-// 1. download Live-Server by Ritwick Dey, 
-// 2. reload VS Code, 
-// 3. click the "Go Live" button
-// 4. Go local host 5500 or http://127.0.0.1:5500/index.html to see your web page
-// 5. Or go use the `npm start` command and navigate to localhost:8080 (ctrl + C to close)
-// 6. go to `index.html` 
-// 7. create inputs, buttons and event listeners that render the code blocks you built above to the DOM.
-
-
-
-
-// Additional Resources
-// Video1: https://player.vimeo.com/video/377147232
-// Video2: https://www.youtube.com/embed/bkvH28PXLWc
-// Video3: https://www.youtube.com/embed/TrGI9Yki-24
